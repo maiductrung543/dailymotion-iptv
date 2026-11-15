@@ -1,1 +1,61 @@
 #EXTM3U
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(tvy6MX_6AtGFMAA4pluVtPcVtrP_1dubKUWZ04jHFbyLV_hcY0ilmHx-hkSxchhVe7_QqNPDP17tuae2Ub9s7OBaXFJ_qAwNooYb2BBdDbHibOLVhC-e4_sNWuzFoNFjw8WTYiV2Mj4RQvM_R1IeXZfdngL2yhdhHQAePUFMrNwjCEv1wlg8B3jrAvASv2Y0WuV3pFha0dMfXE-hGTPRZg)/video/fmp4/719872426/h264_sd/3/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 2
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(IkzYkkHdgJvMs7pe0xYdz9S_OQdqxq-rBAdgwUvTJPuUT3WDJAg7JaQI4XH0NLxy_mAea5DNIoSnDCl0XdxOTAAvWRh-k1FOfBikbE8iHdLemcvAdqwRMmSy6ECnjZG9nNzy3XWNIf7p1ooe6gg8IRTIO3kO4Ek7lhiOJFnVdfk_tfJqJ5TMNVMKvFtTg5H_TenOyygTt_ubmtZKfnsXyA)/video/fmp4/719872430/h264_sd/3/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 3
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(0JMPVi6k6QLud5Mh9Gv8NA7Vce7iC4McR3nDy3bCqwripDN7dMxZUyoQX2ld89nnZ0XdOoW7a-9hvrRVgun6jD0e-bKdgcumsMVGcBeCo1v1ikYuEsKhUfS1ms5SNjJeNcZmRAO3eXegYZzXRTX61Z_1rlo7S8b41bdXKSejA6pWHsQI6bmLk0mys8EWisD5emMiB5Kr48LIzrjYc_EOjw)/video/fmp4/719848442/h264_sd/3/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 4
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(LMa4UXuva0Ab3NQtrsrQ01O8l_WvZBVEKIDlngM_Q3THN8WpU-MUhDWA2vGsp8KaQYWXEN41hZ9xuDi2UIVVjRwQ3DLdLp8AdXzZ7nFBnSOhfv3NbI0cYm9bShAHPpkgJSv3j4rCL7AhUxAh_Yk8OWK-Tcne3j6Paru2wPHF-sEiOUAYxm9nS9pdrvT0xZCM5zF0zl_SeryaXadnIzo4DA)/video/fmp4/718645850/h264_sd/3/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 5
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(te78Nnp1e8v-5h73qjJnhkxWocX94fTMaK1ZB9xgiwk_VIxNv0Xggyg3tDbcYw-TBUE-TtBbvnLVWEutN5W3c-MOrGC1MK2eEn8S4KnJGs46J6f3fSQKvTxovsz8YhHkSmdRM5DuiEJdlHTFlyat8mLRw-k2j2AAlfRADiQ4RQ5R2Jd3opehXPgSj_54dbaVSplChXZNG9W3GvulQVWpGA)/video/fmp4/719398426/h264_sd/3/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 6
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(LYDUGIeyRIJ1Jn2lwxqELDmqKEIoHeV0yMRe3nLRSSiTUFzlEtHwzOr39EcSJ8ymgbuQDwXjcSifjzaxOisy691GvGRc2tnv6PuONneV2Gw9WvIbRTHnzuFTNgVy3fTTjh6gMwgCqmd2_XMwjpqmn00RE8IGYUkmRlflt83VjTK9aIBTGWawXrKl_hz_2nbZZ4v7RiPDpYtsE1qRKbTHVQ)/video/fmp4/719381638/h264_sd/3/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 7
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(D6rAkO7p4jhYk7sP1xo9LBr1hwlTOoY_S_ZHLsbAn-r88espTs4InmP5RzCFy0K8-tO1zEudkdJhBBiXApUDmruhROZmS9JExD_3Tofwj5MxzgebkvDW_AM4F0HCut5_7CrLnRxl5jQGSNoI97ZnzH5YkcPOg2TtGlZLykoc3FMvbflXiyfYpjDEEgoCJAutbBvAOCOIfDmNqRlNQGV3XA)/video/fmp4/718901282/h264_sd/2/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 8
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(lm9tGOgcVskdTu9u5ALv3UZD_ZoegfX3LGu0DzwyQm4XdcKMSm2-VivxEDuHpl3XJFF4sWv_r2k-JVMjLjCkAmYROisXr66DXHz8ptBwy2EnsOwFGd9vpyBF9MNnaf0bASsuLhZUnZba08qRCgxterOHhnFdZxq4XNt3FWFWQwAaEPCf4Cx0FvkBbNgHPhRyu4rrl1RauhGsDfZJFeXiug)/video/fmp4/718645846/h264_sd/3/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 9
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(og7A9EGVSt0DntEB7EhSlZFtnpCT6CpHd7aMfD2gecAEv_7d7edYItwj9-x-JzcB1_8SajQVXAUZxo9V8XMZz4C6CSqdM2qAUM3nduZVHnf7HzmgfVp9HYxVBSPhq4aikZZ2E-zy81ZtxsW1ibghfmbuOIBXntwos35uDaISFLVhws1KOfNgFLRRelQ9824oqLaHnqOopf_QRC3FKQ12iA)/video/fmp4/718927614/h264_sd/3/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 10
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(yuUmww4vjGSKrLRnEaPrzFY22U8_I4xx5EyIVaRjrhGn3LYs_WixxLg0w-cNcToxBtH4L4knFmHQFdQ8iTNfS-6m8NlPMQ8FyESo1-SNzDF5XwrT2lImSoNdeZaiguKhc0AvbFT-XhBllFok255IISLcTVps-UEntW3snqeQjA1MVqmofZvYV_VkiLkC0TVHxe8XwWoZssdI1-jAV_QAvQ)/video/fmp4/718926046/h264_sd/3/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 11
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(b4-IP9tqwMZDNP4LBUk4UHtWF6PhuNIwjkJRcqR9lHpU49ECpH9Z_nT6X4t4nXnQjBO62bHxa5X1jkmUgIYg8Oh3hW1zlb0HRHkJiKbU30t3SK6KyRxJkxBQUpP0dx8y3hbYr7FzaGFDg_CcuYDjVkuHQAYiaU2eh0YC6QzEbyks275rvI8Zy5St47rFa4YmshWWPfp5IwUrmvhkYpL49Q)/video/fmp4/718893730/h264_sd/3/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 12
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(-PrX_HwpZ0qXbMP309ME0b4JJehxHe3zW4SIRiCJbpYclW3f57-mH9Qk9cjBAoXwjNS_nTy5reRy-MASulYwjpD_7toUO-xBg61CEBFn31eZPFL265KLuAnEyCNWhgZuDawbZWCmTVuQ5JYWMWlbBpXVQbqsn_tMBIjTRriZnrdIKF0_Y3qYm0QcRg6l5ZNOhTZZdfBA5D08VGzl3bOH4Q)/video/fmp4/718877630/h264_sd/3/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 13
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(Hg_oReH4_tocodXgrAYespkLz9xELnJpJoKuLkN1d1Gouo_Rv1yZUhfY_ljWZnCtJoL7p_E8vVuMD_x_oOp759DWl4NPNePuVFzpu_wjznedUxG4dA09LF2rMj88GgJ8zDgZzOnTj0WXJlKKp1khUh9on9M0U5GTOl8wD8VS5OmozlJBhOenT4BVlnr-6oCaqAwitaWsGJyxpphse1qU1Q)/video/fmp4/718066498/h264_sd/3/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 14
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(4VxmQH8Ky7W1nZjaGnln54nxvUewsFXVzYV5lSRqE8n040UKpwQ37o4Gm7b-YPaKaVBZlh_wMI0PT9UtNHmx5VwAM7mkjvDbr3u-enQ0jXSGHPbXVRIvfnA9O_1kvaArD19m7994yAiIHxogHKlZnoF53bwmYujBfEJTSzmshSteIPsTuisZMmviFB24Ygag3-lgR-_81I4CJFVjRTh0iA)/video/fmp4/718490174/h264_sd/3/manifest.m3u8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 15
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
+https://vod3.cf.dmcdn.net/sec2(N8TJ-v4dmh4CNARUci1U3p4kTkoG1wvaNYk84scEiQnG2sMCKnIoiAfA0PHE4nfZq_8oTfaM-gJBLgJnC8Mgtx8Kj3-V0YY3ZDjO26iKpVxjtFS0M5oWA7A8zrRqQ7crW4zND4lWqpNpzOy4ybXvmIKPSZ39anMw1W6vabFG6brwpOtjBnkycwXl8fA21fBH3B8pK0REU8wa0A7WxJOZVw)/video/fmp4/717540862/h264_sd/3/manifest.m3u8
