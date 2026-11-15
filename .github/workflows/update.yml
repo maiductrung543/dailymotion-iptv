@@ -1,37 +1,38 @@
-name: Auto Scrape Dailymotion HP-Media
+name: Update Dailymotion IPTV Playlist
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
-  workflow_dispatch:
+    # Tự động chạy mỗi 2 tiếng (bạn có thể sửa lại thời gian tùy ý)
+    - cron: '0 */2 * * *'
+  workflow_dispatch: # Cho phép bấm chạy thủ công bằng tay
 
 jobs:
-  update-playlist:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    
-    permissions:
-      contents: write
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
+      - name: Cài đặt yt-dlp và thư viện giả lập trình duyệt
         run: |
-          pip install yt-dlp
+          python -m pip install --upgrade pip
+          # Cài đặt bản yt-dlp mới nhất kèm theo curl-cffi để vượt rào
+          pip install -U "yt-dlp[default,curl-cffi]"
 
-      - name: Run Scraper Script
+      - name: Chạy Script
         run: python scrape.py
 
-      - name: Commit and push if changed
+      - name: Commit và Push file playlist
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add playlist.m3u
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update Dailymotion M3U playlist" && git push)
+          # Lệnh commit, nếu không có thay đổi thì bỏ qua không báo lỗi
+          git commit -m "Auto-update playlist.m3u" || echo "No changes to commit"
+          git push
