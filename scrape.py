@@ -1,12 +1,11 @@
 import subprocess
-import json
 
 CHANNEL_URL = "https://www.dailymotion.com/user/HP-Media/videos"
 
 def generate_m3u():
-    print(f"Đang quét danh sách video từ: {CHANNEL_URL}...")
+    print(f"Đang quét danh sách video và lấy link m3u8 chuẩn từ: {CHANNEL_URL}...")
     
-    # Bước 1: Lấy danh sách các URL video trước (giới hạn 15 video mới nhất để chạy nhanh)
+    # Bước 1: Lấy danh sách URL gốc của video (giới hạn 15 video mới nhất)
     list_command = [
         "yt-dlp",
         "--flat-playlist",
@@ -23,12 +22,14 @@ def generate_m3u():
         count = 0
         
         for web_url in video_urls:
-            print(f"Đang xử lý video: {web_url}")
-            # Bước 2: Lấy tiêu đề thật và link m3u8 chuẩn (.m3u8) cho từng video
-            # Sử dụng --print kết hợp title và url trực tiếp qua yt-dlp
+            print(f"Đang bóc tách m3u8 cho: {web_url}")
+            
+            # Bước 2: Dùng yt-dlp trích xuất link master m3u8 và tiêu đề thật
+            # Thêm cờ --format hoặc lấy trực tiếp định dạng hls/master stream
             info_command = [
                 "yt-dlp",
                 "--get-title",
+                "-f", "best[ext=mp4]/best", # Ưu tiên định dạng tốt nhất có đủ hình/tiếng
                 "-g",
                 web_url
             ]
@@ -39,7 +40,15 @@ def generate_m3u():
                     output_lines = info_res.stdout.strip().split("\n")
                     if len(output_lines) >= 2:
                         title = output_lines[0].strip()
-                        stream_url = output_lines[-1].strip() # Link m3u8 thực tế nằm ở dòng cuối
+                        # Lọc lấy dòng chứa m3u8 hoặc dòng stream tốt nhất thay vì audio-only
+                        stream_url = ""
+                        for line in output_lines[1:]:
+                            if ".m3u8" in line or "manifest" in line:
+                                stream_url = line.strip()
+                                break
+                        # Nếu không lọc được dòng m3u8 ưu tiên, lấy dòng cuối cùng
+                        if not stream_url:
+                            stream_url = output_lines[-1].strip()
                         
                         clean_title = title.replace("\n", " ").strip()
                         if not clean_title:
