@@ -2,12 +2,16 @@ name: Auto Scrape Dailymotion HP-Media
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # Tự động chạy mỗi 6 tiếng một lần
-  workflow_dispatch: # Cho phép bấm chạy thủ công bất cứ lúc nào bạn muốn
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
 
 jobs:
   update-playlist:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
