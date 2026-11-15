@@ -1,31 +1,61 @@
 #EXTM3U
-#EXTINF:-1 group-title="HP-Media Dailymotion", Kế Hoạch CM12 - Tập 8 - HP Media
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 1
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbwld4a
-#EXTINF:-1 group-title="HP-Media Dailymotion", Dailymotion Video 2
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 2
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbwld4e
-#EXTINF:-1 group-title="HP-Media Dailymotion", Chỉ Cần Chúng Ta Bên Nhau - Tập 27 - HP Media
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 3
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbwkum2
-#EXTINF:-1 group-title="HP-Media Dailymotion", Dailymotion Video 4
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 4
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbvv2oq
-#EXTINF:-1 group-title="HP-Media Dailymotion", Kế Hoạch CM12 - Tập 6 - HP Media
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 5
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbwb7dm
-#EXTINF:-1 group-title="HP-Media Dailymotion", Dailymotion Video 6
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 6
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbwaufa
-#EXTINF:-1 group-title="HP-Media Dailymotion", Dailymotion Video 7
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 7
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbw0js2
-#EXTINF:-1 group-title="HP-Media Dailymotion", Dailymotion Video 8
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 8
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbvv2om
-#EXTINF:-1 group-title="HP-Media Dailymotion", Trailer Xóm Nhỏ - Tập 17 - HP Media
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 9
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbw143i
-#EXTINF:-1 group-title="HP-Media Dailymotion", Dailymotion Video 10
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 10
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbw12vy
-#EXTINF:-1 group-title="HP-Media Dailymotion", Dailymotion Video 11
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 11
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbw0dya
-#EXTINF:-1 group-title="HP-Media Dailymotion", Đội Bóng Nữ Làng Xuân - Tập 20 - HP Media
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 12
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbw01j2
-#EXTINF:-1 group-title="HP-Media Dailymotion", Kế Hoạch CM12  - Tập 5 - Nhập vai - HP Media
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 13
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbvinnm
-#EXTINF:-1 group-title="HP-Media Dailymotion", Dailymotion Video 14
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 14
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbvrqke
-#EXTINF:-1 group-title="HP-Media Dailymotion", Lựa Chọn Số Phận - Tập 29 - HP Media
+#EXTINF:-1 group-title="HP-Media Dailymotion", HP-Media Video 15
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dailymotion.com/
 https://www.dailymotion.com/video/xbv7e2m
