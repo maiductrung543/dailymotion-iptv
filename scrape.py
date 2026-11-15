@@ -3,9 +3,9 @@ import subprocess
 CHANNEL_URL = "https://www.dailymotion.com/user/HP-Media/videos"
 
 def generate_m3u():
-    print(f"Đang quét danh sách video và lấy link m3u8 chuẩn từ: {CHANNEL_URL}...")
+    print(f"Đang quét danh sách video từ: {CHANNEL_URL}...")
     
-    # Bước 1: Lấy danh sách URL gốc của video (giới hạn 15 video mới nhất)
+    # Lấy danh sách URL gốc của video (giới hạn 15 video mới nhất)
     list_command = [
         "yt-dlp",
         "--flat-playlist",
@@ -22,43 +22,34 @@ def generate_m3u():
         count = 0
         
         for web_url in video_urls:
-            print(f"Đang bóc tách m3u8 cho: {web_url}")
+            print(f"Đang lấy link cho: {web_url}")
             
-            # Bước 2: Dùng yt-dlp trích xuất link master m3u8 và tiêu đề thật
-            # Thêm cờ --format hoặc lấy trực tiếp định dạng hls/master stream
+            # Lấy tiêu đề và link stream trực tiếp bằng định dạng --print thay vì -g để tránh lệch dòng
             info_command = [
                 "yt-dlp",
-                "--get-title",
-                "-f", "best[ext=mp4]/best", # Ưu tiên định dạng tốt nhất có đủ hình/tiếng
-                "-g",
+                "--print", "%(title)s",
+                "--print", "%(url)s",
                 web_url
             ]
             
             try:
                 info_res = subprocess.run(info_command, capture_output=True, text=True, timeout=15)
                 if info_res.returncode == 0:
-                    output_lines = info_res.stdout.strip().split("\n")
-                    if len(output_lines) >= 2:
-                        title = output_lines[0].strip()
-                        # Lọc lấy dòng chứa m3u8 hoặc dòng stream tốt nhất thay vì audio-only
-                        stream_url = ""
-                        for line in output_lines[1:]:
-                            if ".m3u8" in line or "manifest" in line:
-                                stream_url = line.strip()
-                                break
-                        # Nếu không lọc được dòng m3u8 ưu tiên, lấy dòng cuối cùng
-                        if not stream_url:
-                            stream_url = output_lines[-1].strip()
+                    lines = [l.strip() for l in info_res.stdout.strip().split("\n") if l.strip()]
+                    if len(lines) >= 2:
+                        title = lines[0]
+                        # Lấy trực tiếp link stream m3u8 chính hãng từ yt-dlp
+                        stream_url = lines[1]
                         
                         clean_title = title.replace("\n", " ").strip()
-                        if not clean_title:
+                        if not clean_title or clean_title == "NA":
                             clean_title = f"Dailymotion Video {count + 1}"
                         
                         m3u_content.append(f'#EXTINF:-1 group-title="HP-Media Dailymotion", {clean_title}')
                         m3u_content.append(stream_url)
                         count += 1
             except subprocess.TimeoutExpired:
-                print(f"Bỏ qua video do quá thời gian: {web_url}")
+                print(f"Bỏ qua do quá thời gian: {web_url}")
                 continue
             except Exception:
                 continue
@@ -66,7 +57,7 @@ def generate_m3u():
         with open("playlist.m3u", "w", encoding="utf-8") as f:
             f.write("\n".join(m3u_content))
             
-        print(f"Đã cập nhật thành công {count} link m3u8 vào playlist.m3u!")
+        print(f"Đã cập nhật thành công {count} video vào playlist.m3u!")
         
     except Exception as e:
         print("Lỗi khi quét kênh:", e)
