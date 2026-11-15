@@ -2,9 +2,13 @@ name: Update Dailymotion IPTV Playlist
 
 on:
   schedule:
-    # Tự động chạy mỗi 2 tiếng (bạn có thể sửa lại thời gian tùy ý)
+    # Tự động chạy mỗi 2 tiếng
     - cron: '0 */2 * * *'
-  workflow_dispatch: # Cho phép bấm chạy thủ công bằng tay
+  workflow_dispatch: # Cho phép chạy thủ công
+
+# Bắt buộc: Cấp quyền ghi để Action có thể push code (Sửa lỗi 128)
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -13,19 +17,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          # Lấy toàn bộ lịch sử để rebase không bị lỗi
+          fetch-depth: 0 
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      - name: Cài đặt yt-dlp và thư viện giả lập trình duyệt
+      - name: Cài đặt yt-dlp và thư viện
         run: |
           python -m pip install --upgrade pip
-          # Cài đặt bản yt-dlp mới nhất kèm theo curl-cffi để vượt rào
           pip install -U "yt-dlp[default,curl-cffi]"
 
-      - name: Chạy Script
+      - name: Chạy Script Python
         run: python scrape.py
 
       - name: Commit và Push file playlist
@@ -33,6 +39,13 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add playlist.m3u
-          # Lệnh commit, nếu không có thay đổi thì bỏ qua không báo lỗi
-          git commit -m "Auto-update playlist.m3u" || echo "No changes to commit"
-          git push
+          
+          # Kiểm tra xem file có thay đổi thực sự không
+          if git diff --staged --quiet; then
+            echo "Không có video mới, bỏ qua commit."
+          else
+            git commit -m "Auto-update playlist.m3u [skip ci]"
+            # Kéo code mới nhất từ nhánh main về để tránh lỗi xung đột
+            git pull --rebase origin main
+            git push
+          fi
