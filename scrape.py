@@ -5,7 +5,7 @@ CHANNEL_URL = "https://www.dailymotion.com/user/HP-Media/videos"
 def generate_m3u():
     print(f"Đang quét danh sách video từ: {CHANNEL_URL}...")
     
-    # Lấy danh sách URL gốc của video (giới hạn 15 video mới nhất)
+    # Bước 1: Lấy danh sách URL web gốc của video (giới hạn 15 video mới nhất)
     list_command = [
         "yt-dlp",
         "--flat-playlist",
@@ -22,37 +22,38 @@ def generate_m3u():
         count = 0
         
         for web_url in video_urls:
-            print(f"Đang lấy link cho: {web_url}")
+            print(f"Đang lấy dữ liệu cho: {web_url}")
             
-            # Lấy tiêu đề và link stream trực tiếp bằng định dạng --print thay vì -g để tránh lệch dòng
-            info_command = [
-                "yt-dlp",
-                "--print", "%(title)s",
-                "--print", "%(url)s",
-                web_url
-            ]
+            # Bước 2: Lấy tiêu đề video
+            title_cmd = ["yt-dlp", "--print", "%(title)s", web_url]
+            title_res = subprocess.run(title_cmd, capture_output=True, text=True, timeout=10)
+            clean_title = title_res.stdout.strip() if title_res.returncode == 0 else ""
+            if not clean_title or clean_title == "NA":
+                clean_title = f"Dailymotion Video {count + 1}"
             
-            try:
-                info_res = subprocess.run(info_command, capture_output=True, text=True, timeout=15)
-                if info_res.returncode == 0:
-                    lines = [l.strip() for l in info_res.stdout.strip().split("\n") if l.strip()]
-                    if len(lines) >= 2:
-                        title = lines[0]
-                        # Lấy trực tiếp link stream m3u8 chính hãng từ yt-dlp
-                        stream_url = lines[1]
-                        
-                        clean_title = title.replace("\n", " ").strip()
-                        if not clean_title or clean_title == "NA":
-                            clean_title = f"Dailymotion Video {count + 1}"
-                        
-                        m3u_content.append(f'#EXTINF:-1 group-title="HP-Media Dailymotion", {clean_title}')
-                        m3u_content.append(stream_url)
-                        count += 1
-            except subprocess.TimeoutExpired:
-                print(f"Bỏ qua do quá thời gian: {web_url}")
-                continue
-            except Exception:
-                continue
+            # Bước 3: Lấy đúng link stream m3u8 chuẩn có cả hình và tiếng bằng cờ -g
+            stream_cmd = ["yt-dlp", "-g", web_url]
+            stream_res = subprocess.run(stream_cmd, capture_output=True, text=True, timeout=15)
+            
+            stream_url = ""
+            if stream_res.returncode == 0:
+                lines = [l.strip() for l in stream_res.stdout.strip().split("\n") if l.strip()]
+                # Duyệt tìm dòng chứa manifest.m3u8 hoặc cdndirector để lấy đúng link video chính
+                for l in lines:
+                    if ".m3u8" in l or "manifest" in l:
+                        stream_url = l
+                        break
+                # Nếu không khớp, lấy dòng cuối cùng làm fallback
+                if not stream_url and lines:
+                    stream_url = lines[-1]
+            
+            # Chỉ thêm vào playlist nếu lấy được link hợp lệ
+            if stream_url and stream_url.startswith("http"):
+                m3u_content.append(f'#EXTINF:-1 group-title="HP-Media Dailymotion", {clean_title}')
+                m3u_content.append(stream_url)
+                count += 1
+            else:
+                print(f"Bỏ qua do không bóc được link stream: {web_url}")
                 
         with open("playlist.m3u", "w", encoding="utf-8") as f:
             f.write("\n".join(m3u_content))
