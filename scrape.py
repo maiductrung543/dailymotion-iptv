@@ -2,7 +2,7 @@ import subprocess
 import json
 
 CHANNEL_URL = "https://www.dailymotion.com/user/HP-Media/videos"
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+USER_AGENT = "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
 
 def generate_m3u():
     print(f"Đang quét danh sách video từ: {CHANNEL_URL}...")
@@ -13,7 +13,8 @@ def generate_m3u():
         "--playlist-end", "15",
         "--dump-json",
         "--no-warnings",
-        "--impersonate", "chrome",
+        "--user-agent", USER_AGENT,
+        "--extractor-args", "dailymotion:player=mobile",
         CHANNEL_URL
     ]
     
@@ -39,16 +40,20 @@ def generate_m3u():
                 if not clean_title or clean_title == "NA" or "Dailymotion Video" in clean_title:
                     clean_title = f"HP-Media Video {count + 1}"
                 
-                print(f"Đang xử lý: {clean_title} - Link: {web_url}")
+                print(f"Đang xử lý: {clean_title}")
                 
-                # Thêm --extractor-args để vượt qua một số rào cản của Dailymotion
+                # FIX LỖI CHỈ CÓ TIẾNG:
+                # -f "best[vcodec!=none][acodec!=none]/best" : Bắt buộc phải có cả Video và Audio
+                # --hls-prefer-native : Ưu tiên luồng HLS (m3u8) nếu có
                 stream_cmd = [
                     "yt-dlp", 
-                    "-f", "best[protocol^=http]/best", 
+                    "-f", "best[vcodec!=none][acodec!=none]/best", 
                     "-g", 
                     "--no-warnings",
-                    "--no-playlist", 
-                    "--impersonate", "chrome", 
+                    "--no-playlist",
+                    "--hls-prefer-native",
+                    "--user-agent", USER_AGENT,
+                    "--extractor-args", "dailymotion:player=mobile",
                     web_url
                 ]
                 stream_res = subprocess.run(stream_cmd, capture_output=True, text=True, timeout=45)
@@ -56,20 +61,23 @@ def generate_m3u():
                 stream_url = ""
                 if stream_res.returncode == 0:
                     sub_lines = [l.strip() for l in stream_res.stdout.strip().split("\n") if l.strip()]
+                    # Ưu tiên tìm link .m3u8
                     for l in sub_lines:
                         if ".m3u8" in l:
                             stream_url = l
                             break
+                    # Nếu không có m3u8, lấy link đầu tiên (thường là mp4)
                     if not stream_url and sub_lines:
                         stream_url = sub_lines[0]
                 else:
-                    # IN RA LỖI ĐỂ DEBUG NẾU KHÔNG LẤY ĐƯỢC LINK
-                    print(f"⚠️ Lỗi lấy link stream cho {web_url}: {stream_res.stderr.strip()}")
+                    print(f"⚠️ Lỗi: {stream_res.stderr.strip()[:150]}...")
                 
-                # NẾU KHÔNG CÓ LINK STREAM, BỎ QUA VIDEO NÀY (Không thêm link web vào m3u nữa)
                 if not stream_url or not stream_url.startswith("http"):
-                    print(f"❌ Bỏ qua video (không tìm thấy luồng phát): {clean_title}")
+                    print(f"❌ Bỏ qua video: {clean_title}")
                     continue
+                
+                # In ra link để bạn kiểm tra (nếu link có đuôi .mp4 hoặc .m3u8 là chuẩn)
+                print(f"🔗 Link lấy được: {stream_url[:80]}...")
                 
                 clean_title = clean_title.replace("\n", " ").replace('"', "'").strip()
                 
@@ -79,7 +87,7 @@ def generate_m3u():
                 m3u_content.append(stream_url)
                 
                 count += 1
-                print(f"✅ Đã thêm link stream: {clean_title}")
+                print(f"✅ Đã thêm: {clean_title}")
                 
             except Exception as e:
                 print(f"Lỗi xử lý 1 video: {e}")
