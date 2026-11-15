@@ -21,7 +21,6 @@ def generate_m3u():
     count = 0
     
     try:
-        # Tăng timeout lên 120s để an toàn
         result = subprocess.run(list_command, capture_output=True, text=True, check=True, timeout=120)
         json_lines = result.stdout.strip().split("\n")
         
@@ -40,18 +39,19 @@ def generate_m3u():
                 if not clean_title or clean_title == "NA" or "Dailymotion Video" in clean_title:
                     clean_title = f"HP-Media Video {count + 1}"
                 
-                print(f"Đang xử lý: {clean_title}")
+                print(f"Đang xử lý: {clean_title} - Link: {web_url}")
                 
+                # Thêm --extractor-args để vượt qua một số rào cản của Dailymotion
                 stream_cmd = [
                     "yt-dlp", 
                     "-f", "best[protocol^=http]/best", 
                     "-g", 
                     "--no-warnings",
-                    "--no-playlist", # Ngăn yt-dlp tải cả kênh nếu link bị nhận diện nhầm
+                    "--no-playlist", 
                     "--impersonate", "chrome", 
                     web_url
                 ]
-                stream_res = subprocess.run(stream_cmd, capture_output=True, text=True, timeout=30)
+                stream_res = subprocess.run(stream_cmd, capture_output=True, text=True, timeout=45)
                 
                 stream_url = ""
                 if stream_res.returncode == 0:
@@ -62,11 +62,15 @@ def generate_m3u():
                             break
                     if not stream_url and sub_lines:
                         stream_url = sub_lines[0]
+                else:
+                    # IN RA LỖI ĐỂ DEBUG NẾU KHÔNG LẤY ĐƯỢC LINK
+                    print(f"⚠️ Lỗi lấy link stream cho {web_url}: {stream_res.stderr.strip()}")
                 
+                # NẾU KHÔNG CÓ LINK STREAM, BỎ QUA VIDEO NÀY (Không thêm link web vào m3u nữa)
                 if not stream_url or not stream_url.startswith("http"):
-                    stream_url = web_url
+                    print(f"❌ Bỏ qua video (không tìm thấy luồng phát): {clean_title}")
+                    continue
                 
-                # Làm sạch tiêu đề
                 clean_title = clean_title.replace("\n", " ").replace('"', "'").strip()
                 
                 m3u_content.append(f'#EXTINF:-1 group-title="HP-Media Dailymotion", {clean_title}')
@@ -75,7 +79,7 @@ def generate_m3u():
                 m3u_content.append(stream_url)
                 
                 count += 1
-                print(f"Đã thêm: {clean_title}")
+                print(f"✅ Đã thêm link stream: {clean_title}")
                 
             except Exception as e:
                 print(f"Lỗi xử lý 1 video: {e}")
@@ -88,7 +92,6 @@ def generate_m3u():
         
     except Exception as e:
         print(f"❌ Lỗi nghiêm trọng khi quét kênh: {e}")
-        # Fallback nếu toàn bộ quá trình lỗi (VD: Dailymotion chặn IP)
         if count == 0:
             with open("playlist.m3u", "w", encoding="utf-8") as f:
                 f.write("#EXTM3U\n#EXTINF:-1 group-title=\"HP-Media\", Lỗi cào dữ liệu\nhttps://vsc9.vip")
